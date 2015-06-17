@@ -1,0 +1,862 @@
+@import "bourbon/bourbon"
+@import "http://webfonts.ru/import/ralewayc.css"
+@import "http://webfonts.ru/import/museocyr.css"
+
+$yellow: #fdec0a
+$blue: #62c2cb
+$white: #ffffff
+$light-gray: #999999
+$gray: #505050
+$title-font-size: 1.5em
+
+
+
+=drop-shadow($opacity)
+  filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, $opacity))
+  -webkit-filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, $opacity))
+
+=linear-gradient($color)
+  background: linear-gradient(transparent 0%, transparent 0%), linear-gradient(-135deg, $color 33.33%, transparent 33.33%) 0 0%, transparent linear-gradient(135deg, $color 33.33%, transparent 33.33%) 0 0%
+  background: -webkit-linear-gradient(transparent 0%, transparent 0%), -webkit-linear-gradient(-45deg, $color 33.33%, transparent 33.33%) 0 0%, transparent -webkit-linear-gradient(-135deg, $color 33.33%, transparent 33.33%) 0 0%
+
+=stripes($color)
+  .stripes
+    margin-top: -7px
+    +drop-shadow(0.1)
+    margin-bottom: 5px
+    &:after
+      content: " "
+      display: block
+      position: relative
+      top: 0px
+      left: 0px
+      width: 100%
+      height: 55px
+      +linear-gradient($color)
+      background-repeat: repeat-x
+      background-size: 0px 100%, 15px 27px, 15px 27px
+
+=title($text-color, $backgroud-color)
+  width: 100%
+  text-align: center
+  color: $text-color
+  background-color: $backgroud-color
+  font-size: $title-font-size
+  font-family: "Museo Sans Cyr", sans-serif
+  h1
+    margin: 0 0
+    padding-top: 10px
+    padding-bottom: 10px
+
+=button($width,$margin-left)
+  .button
+    padding-top: 10px
+    background-color: #ffeb3b
+    margin-top: 20px
+    padding-bottom: 10px
+    margin-bottom: 25px
+    width: $width
+    margin-left: $margin-left
+    text-align: center
+    font-size: 1.5em
+    color: $gray
+    letter-spacing: 1px
+    box-shadow: 0 1px 2px $light-gray
+    @include border-top-radius(5px)
+    @include border-bottom-radius(5px)
+    @include transform(translateZ(0))
+    transition: box-shadow 0.25s ease-in
+    &:hover
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3)
+      cursor: pointer
+
+=three-content
+  width: 10px
+  height: 10px
+  position: absolute
+  background-color: $white
+  box-shadow: 0 2px 4px $light-gray
+
+=shadow
+  box-shadow: 0 1px 2px $light-gray
+  @include transform(translateZ(0))
+  transition: box-shadow 0.25s ease-in
+  padding-bottom: 10px
+  &:hover
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3)
+
+=twelve-shadow
+  box-shadow: 0 4px 10px $light-gray
+  @include transform(translateZ(0))
+  transition: box-shadow 0.25s ease-in
+  padding-bottom: 10px
+  &:hover
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3)
+
+
+
+html
+  margin: 0 0 0 0
+  padding: 0
+  width: 100%
+  height: 100%
+
+body
+  margin: 0
+  padding: 0
+  width: 100%
+  height: 100%
+  font-family: 'Raleway Cyr', sans-serif
+  background: url("img/bg7.jpg")
+  background-position: top
+  background-repeat: no-repeat
+  background-size: cover
+
+.head
+  position: absolute
+  //background: url("img/bg7.jpg")
+  //background-position: top
+  //background-repeat: no-repeat
+  //background-size: cover
+  height: 100%
+  width: 100%
+
+.descr
+  width: 50%
+  position: absolute
+  top: 50%
+  left: 50%
+  @include transform(translateX(-50%) translateY(-50%))
+  font-family: 'Raleway Cyr', serif
+  h1
+    font-family: 'Museo Sans Cyr', sans-serif
+    font-size: 4em
+    text-align: center
+    font-weight: 600
+    //color: #2d2d2d
+    color: $white
+    float: left
+    letter-spacing: 2px
+    margin-top: 0
+    text-transform: uppercase
+    //span
+      //padding-left: 9px
+      //padding-right: 9px
+      //display: inline-block
+      //background-color: #fff
+      //background-color: rgba(255,255,255,0.8)
+  p
+    font-size: 1em
+    //color: $gray
+    color: $white
+    font-weight: 400
+    margin-bottom: 42px
+    letter-spacing: 1px
+    text-align: center
+    //span
+      //background-color: #fff
+      //padding: 3px 0px
+      //background-color: rgba(255,255,255,0.8)
+  .button
+    font-size: 1.1em
+    text-align: center
+    width: 50%
+    margin-left: 25%
+    font-weight: 600
+    color: $gray
+    letter-spacing: 2px
+    //border: solid 1px $white
+    border-radius: 10px
+    //background-color: rgba(255,255,255,0.8)
+    //background-color: rgba(253, 236, 10, 1)
+    background-color: $yellow // Old browsers
+    padding: 20px
+    //border: solid 5px #ffcf00
+    i
+      vertical-align: middle
+      color: #ffb400
+      font-size: 1.6em
+    &:hover
+      background-color: rgba(253, 236, 10, 1)
+      cursor: pointer
+
+.menu
+  font-size: 0.9em
+  float: right
+  margin: 0
+  letter-spacing: 2px
+  //background-color: rgb(52, 64, 64)
+  width: 100%
+  display: inline-block
+  text-decoration: none
+  text-align: center
+  font-family: 'Museo Sans Cyr', serif
+  //text-transform: uppercase
+  font-weight: 500
+  color: $white
+  li
+    display: inline-block
+    margin: 0%
+    padding: 10px 10px
+    height: 100%
+    //padding-bottom: 30px
+    //padding-left: 15px
+    //padding-right: 15px
+    transition: 0.1s
+    &:first-child
+      font-size: 1.9em
+      vertical-align: bottom
+      padding-top: 25px
+      //padding-bottom: 10px
+    &:last-child
+      border: solid 1px $yellow
+      color: $gray
+      background-color: $yellow
+      padding-top: 15px
+      margin-left: 10px
+      padding-bottom: 15px
+      font-weight: 600
+      font-size: 1.1em
+      //vertical-align: middle
+      @include border-top-radius(7px)
+      @include border-bottom-radius(7px)
+      //padding-left: 20px
+    &:hover
+      background-color: rgba(0, 0, 0, 0.3)
+      transition: 0.1s
+      cursor: pointer
+    img
+      width: 50px
+      margin-top: -27%
+      @include transform(translateY(21%))
+      padding-right: 10px
+
+
+.menu-bottom
+  position: absolute
+  top: 100%
+  @include transform(translateY(-100%))
+  font-size: 1em
+  //float: right
+  margin: 0
+  padding: 0
+  letter-spacing: 2px
+  width: 100%
+  //height: 10%
+  //display: inline-block
+  text-decoration: none
+  font-family: 'Museo Sans Cyr', serif
+  //text-transform: uppercase
+  font-weight: 500
+  color: $gray
+  div
+    display: inline-block
+    width: 18%
+    margin-left: 1.2%
+    height: 100%
+    padding-left: 5px
+    padding-top: 5px
+    padding-bottom: 5px
+    transition: 0.1s
+    background-color: $white
+    border-top-left-radius: 10px
+    border-top-right-radius: 10px
+    text-align: center
+    img
+      width: 30px
+      //margin-top: -50%
+      @include transform(translateX(10%) translateY(66%))
+      margin-right: 10px
+      //padding-right: 10px
+    &:nth-child(3)
+      img
+        @include transform(translateX(-125%) translateY(66%))
+    &:nth-child(4)
+      img
+        @include transform(translateX(-55%) translateY(66%))
+    &:hover
+      background-color: rgba(256, 256, 256, 0.7)
+      transition: 0.1s
+      cursor: pointer
+
+
+.two
+  background-color: $white
+  .two-title
+    +title($white,$blue)
+  +stripes($blue)
+  .two-block
+    background-color: #fff
+    @include border-top-radius(5px)
+    @include border-bottom-radius(5px)
+    padding-bottom: 50px!important
+    +shadow
+    img
+      width: 70%
+      margin-left: 15%
+      margin-top: 49px
+      +drop-shadow(0.4)
+    p
+      text-align: center
+      font-size: 1.4em
+      font-weight: 200
+      font-family: "Raleway Cyr"
+      color: $gray
+      padding-top: 35px
+  +button(30%,35%)
+  .two-text
+    margin-top: 2%
+    font-family: "Raleway Cyr", sans-serif
+    font-size: 1.5em
+    text-align: center
+    color: $gray
+    font-weight: 100
+    padding-top: 10px
+
+.three
+  background-color: $blue
+  background-image: url("img/bgicons1.png")
+
+  .three-row-1
+    .three-title
+
+      +title($blue,$white)
+
+    +stripes($white)
+  .three-row-2
+    .three-one
+      .three-one-content
+        +three-content
+    .three-two
+      .three-two-content
+        +three-content
+    .three-three
+      .three-three-content
+        +three-content
+
+    .three-slide-title
+      //+title($gray,transparent)
+      h2
+        margin: 0
+        font-size: 1.7em
+        padding-top: 20px
+        padding-bottom: 15px
+        font-weight: 200
+        text-align: center
+        color: $gray
+    .three-slide-text
+      text-align: center
+      color: $light-gray
+      p
+        margin: 0
+        font-weight: 100
+    //+button
+    //.col-md-1
+      padding: 0
+      width: 2.1%
+    .col-md-6
+      padding: 0
+      //width: 47.9%
+    .three-block-sm
+      &:hover
+        cursor: pointer
+      font-size: 4em
+      @include transform(translateY(-50%))
+      margin-left: 5px
+      margin-right: 5px
+      //margin-top: 200px
+      text-align: center
+      color: $light-gray
+      position: absolute
+      z-index: 99999
+    .right-arrow
+      right: 0
+
+  .first-block
+    border-right: solid 1px #f5f5f5
+  .second-block
+    //border-left: solid 1px $gray
+
+    //margin-bottom: 24px
+    .title-case
+      //+title($gray,transparent)
+      margin-top: -24px
+      padding-top: 24px
+      h3
+        font-size: 1.5em
+        font-weight: 200
+        color: $gray
+        text-align: center
+
+    .text-case
+      padding-left: 24px
+      .text-case-first
+        display: inline-block
+        width: 30%
+        text-align: left
+        margin-left: 15px
+        img
+          width: 25%
+          +drop-shadow(0.4)
+        p
+        color: $light-gray
+        font-weight: 100
+      .text-case-second
+        display: inline-block
+        width: 30%
+        text-align: left
+        margin-left: 15px
+        img
+          width: 25%
+          +drop-shadow(0.4)
+        p
+        color: $light-gray
+        font-weight: 100
+      .slide2
+        width: 40%
+        img
+          width: 30%
+    +button(80%,10%)
+    .btn-s3
+      margin-top: -2px
+
+.four
+  background-color: $white
+  .four-title
+    +title($white,$blue)
+  .four-block
+    .sticker
+      position: absolute
+      top: -20px
+      left: 50%
+      width: 40px
+      height: 40px
+      border-radius: 50%
+      text-align: center
+      background-color: $blue
+      color: #ffffff
+      font-size: 1.8em
+      box-shadow: 0 1px 2px $light-gray
+      @include transform(translateX(-50%))
+    background-color: $white
+    margin-bottom: 30px
+    padding-top: 7%
+    padding-bottom: 7%
+    font-family: "Raleway Cyr", sans-serif
+    @include border-top-radius(5px)
+    @include border-bottom-radius(5px)
+    +shadow
+    img
+      text-align: center
+      width: 30%
+      margin-left: 35%
+
+    h3
+      text-align: center
+      font-weight: 200
+    p
+      text-align: center
+      margin-left: 10%
+      margin-right: 10%
+      font-weight: 300
+      padding-bottom: 25px
+      font-size: 1.1em
+  .btn-bottom
+    margin-bottom: 0!important
+  +button(30%,35%)
+  +stripes($blue)
+
+.five
+  background-color: $blue
+  background-image: url("img/bgicons1.png")
+  .five-title
+    +title($blue,$white)
+  +stripes($white)
+  .five-big-block
+    background-color: $white
+    @include border-top-radius(5px)
+    @include border-bottom-radius(5px)
+    +shadow
+  .five-sm-block
+    background-color: $white
+    @include border-top-radius(5px)
+    @include border-bottom-radius(5px)
+    +shadow
+
+.s678
+  background-color: $white
+  .s678-block-text
+    background-color: $white
+    +shadow
+    position: relative
+    top: 135px
+  .s678-title
+    padding-top: 21px
+    padding-bottom: 21px
+    //+title($gray,transparent)
+    font-size: 3em
+    font-weight: 100
+    text-align: center
+    color: $gray
+  h3
+    margin: 0 0
+    padding-left: 30px
+    padding-right: 30px
+
+  p
+    padding-left: 30px
+    padding-right: 30px
+    font-weight: 200
+    font-size: 1.2em
+    margin-top: 0
+  ul
+    margin-top: 21px
+    font-weight: 200
+    font-size: 1em
+    margin-left: 25px
+    padding-right: 30px
+
+  +button(70%,15%)
+  .btn-678
+    position: absolute
+    bottom: 21px
+    margin-bottom: 0
+  .s678-block-pic
+    background-color: $white
+    //+shadow
+    position: relative
+    top: 135px
+    padding-bottom: 0 !important
+    padding-left: 20%
+    div
+      img
+        +shadow
+
+
+.nine
+  background-color: $blue
+  background-image: url("img/bgicons1.png")
+  .nine-title
+    +title($blue,$white)
+  +stripes($white)
+  .autoplay
+    margin-top: 120px
+    margin-left: 55px
+    margin-right: 55px
+  .div
+    background-color: $white
+    width: 300px
+    height: 200px
+    margin-left: 15px
+    margin-right: 15px
+    +shadow
+    img
+      position: relative
+      left: 50%
+      top: 50%
+      @include transform(translateX(-50%) translateY(-50%))
+      height: 33px
+
+    p
+      text-align: center
+      font-size: 1.2em
+      font-weight: 200
+      position: relative
+      top: 50%
+  +button(30%,35%)
+  .slick-next, .slick-prev
+    display: none!important
+
+
+.s10-11
+  background-color: $white
+  .ten-title
+    +title($white,$blue)
+  +stripes($blue)
+  .ten-video
+    position: relative
+    top: 150px
+
+
+  .content-10-11
+    position: relative
+    top: 150px
+    padding-bottom: 0!important
+
+    .text-10-11
+      padding: 15px 15px
+      +shadow
+      position: relative
+      top: 0
+
+    .result-10-11
+      padding: 15px 25px
+      +shadow
+      position: absolute
+      width: 100%
+      bottom: 5px
+      //text-align: center
+      h2
+        width: 150px
+        text-align: center
+        font-size: 1.3em
+        font-weight: 200
+      div
+        margin-left: 20px
+        padding-top: 3px
+        padding-bottom: 3px
+        padding-left: 5px
+        width: 100%
+        font-size: 1.1em
+        font-weight: 100
+        display: inline-block
+      .res-0
+        width: 150px
+        text-align: right
+      .res-1
+        background-color: #fdec0a
+        width: 120px
+        //padding-right: 10px
+        border-left: solid 1px $gray
+      .res-2
+        background-color: #2aabd2
+        //padding-right: 35px
+        width: 150px
+        border-left: solid 1px $gray
+      .res-3
+        background-color: #e38d13
+        //padding-right: 60px
+        width: 170px
+        border-left: solid 1px $gray
+  +button(30%,35%)
+  .btn-11
+    position: absolute
+    bottom: 5px
+
+
+
+
+
+.eleven
+  background-color: $white
+
+
+
+.twelve
+  &:after
+    content: ""
+    background-color: $blue
+    background-image: url("img/bgicons1.png")
+    opacity: 1
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    position: absolute
+    z-index: -1
+  .twelve-title
+    +title($blue,$white)
+  +stripes($white)
+  .twelve-form
+    position: absolute
+    width: 50%
+    margin-left: 25%
+    background-color: #fff
+    h3
+      margin-top: 0
+      padding-top: 25px
+      font-size: 2em
+      text-align: center
+      color: $gray
+      font-weight: 100
+    +shadow
+    +button(50%,25%)
+    input
+      width: 75%
+      margin-left: 12.5%
+      display: block
+      color: $light-gray
+      font-size: 1.5em
+      font-weight: 100
+.thirteen
+  background-color: #fff
+  .thirteen-title
+    +title($white,$blue)
+  +stripes($blue)
+  .contactus
+    position: absolute
+    width: 25%
+    margin-left: 37.5%
+    +shadow
+    div
+      //width: 50%
+      //display: inline-block
+      font-size: 2em
+      font-weight: 100
+      margin-top: 10%
+      text-align: center
+
+.six-container-title
+  position: absolute
+  @include transition(top 700ms ease)
+  //@include transform(rotate(0.01deg))
+  @include transform(translate3d(0,0,0))
+  top: 100%
+  //display: none
+  .six-title
+    +title($white,$blue)
+  +stripes($blue)
+  width: 100%
+  z-index: 99
+
+.six-container-title-up
+  position: absolute
+  //transition: 0.7s ease-in-out
+  @include transition(top 700ms ease)
+  //@include transform(rotate(0.01deg))
+  @include transform(translate3d(0,0,0))
+  top: -100%
+  width: 100%
+  z-index: 99
+
+.position-fixed
+  @include transition(top 700ms ease)
+  top: 0
+  //@include transform(rotate(0.01deg))
+  @include transform(translate3d(0,0,0))
+  //display: block
+  z-index: 99
+  //position: absolute
+  position: fixed
+  left: 0
+  //margin-top: 0
+  width: 100%
+.five-big-block
+  h1
+    font-size: 4em
+    text-align: center
+    color: $gray
+    font-weight: 100
+    margin-top: 0
+  .calc-block
+    margin-bottom: 55px
+    margin-left: 10px
+    margin-right: 10px
+    h2
+      margin-left: 50px
+      margin-top: -17px
+      text-align: left
+      color: $light-gray
+      font-weight: 300
+      span
+        color: $gray
+    .slider-container
+      margin-bottom: 70px
+      margin-left: 50px
+      .back-bar
+        height: 17px
+        border-radius: 0px
+        .selected-bar
+          border-radius: 0px
+        .pointer
+          width: 30px
+          height: 30px
+          top: -6px
+          border-radius: 50%
+          border-color: #D4D4D4
+          &:hover
+            cursor: pointer
+
+.five-sm-block
+  h1
+    text-align: center
+    color: $gray
+    font-weight: 100
+    font-size: 4em
+    margin-top: 0
+  .bar-left
+    display: inline-block
+    .chart
+      transition: 0.3s
+      left: 37%
+      position: absolute
+      bottom: 30%
+      width: 65px
+      height: 130px
+      padding-left: 10px
+      padding-right: 10px
+      background-color: rgba(252,234,187,1)
+      background: #d0e4f7
+      background-color: $yellow
+      //border-bottom: 1px solid $gray
+      +shadow
+    .res
+      width: 65px
+      left: 37%
+      text-align: right
+      position: absolute
+      bottom: 20%
+  .bar-right
+    display: inline-block
+    .chart-right
+      transition: 0.3s
+      right: 37%
+      position: absolute
+      bottom: 30%
+      width: 65px
+      height: 65px
+      padding-left: 10px
+      padding-right: 10px
+      background-color: rgba(252,234,187,1)
+      background: #d0e4f7
+      background-color: #54CBFF
+      //border-bottom: 1px solid $gray
+      +shadow
+    .res-right
+      width: 65px
+      right: 37%
+      text-align: left
+      position: absolute
+      bottom: 20%
+  +button(75%, 12.5%)
+  .btn-5
+    position: absolute
+    bottom: 0
+
+.ten-container-title
+  position: absolute
+  @include transition(top 700ms ease)
+  //@include transform(rotate(0.01deg))
+  @include transform(translate3d(0,0,0))
+  top: 100%
+  //display: none
+  .six-title
+  +title($white,$blue)
+  +stripes($blue)
+  .stripes
+    margin-bottom: -50px
+  width: 100%
+  z-index: 98
+
+.ten-container-title-up
+  position: absolute
+  //transition: 0.7s ease-in-out
+  @include transition(top 700ms ease)
+  //@include transform(rotate(0.01deg))
+  @include transform(translate3d(0,0,0))
+  top: -100%
+  width: 100%
+  z-index: 98
+
+.ten-container-title-fixed
+  @include transition(top 700ms ease)
+  top: 0
+  //@include transform(rotate(0.01deg))
+  @include transform(translate3d(0,0,0))
+  //display: block
+  z-index: 98
+  //position: absolute
+  position: fixed
+  left: 0
+  //margin-top: 0
+  width: 100%
